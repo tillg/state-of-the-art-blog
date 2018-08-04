@@ -14,7 +14,7 @@ Next steps should be:
 * Header image
 * Caonical
  
- ##References
+ ## References
 
  * [An article explaining how to set up a basic blog](https://blog.pusher.com/metalsmith-static-with-realtime-comment-features/). The only problem: It uses the older Jade, not the more modern pug...
  * [A nice blog based on Metalsmith](https://github.com/howarddierking/blog.howarddierking.com)
