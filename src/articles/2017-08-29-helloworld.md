@@ -1,7 +1,7 @@
 ---
 title: Section 2 of Lorem Ipsum.
 date: 2017-08-29 12:28
-author: by William Imoh
+author: William Imoh
 template: article.jade
 ---
 **Section 2**

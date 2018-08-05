@@ -7,13 +7,14 @@ var assets = require('metalsmith-assets');
 var argv = require('minimist')(process.argv);
 var browserSync = require('browser-sync');
 var drafts = require('metalsmith-drafts');
+var moment = require('moment');
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
 if (!argv.deploy) {
   browserSync({
     server: 'build',
-    files: ['src/*.md', 'layouts/*.jade', 'assets/*.css'],
+    files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
     middleware: function (req, res, next) {
       build(next);
     }
@@ -26,6 +27,15 @@ if (!argv.deploy) {
 
 function build(callback) {
   metalsmith(__dirname)
+    .metadata({
+      moment,
+      site: {
+        title: "Till's Year",
+        subtitle: "One year. One picture a day.",
+        url: 'https://tillsyear.com',
+        author: 'Till Gartner'
+      }
+    })
     .source('src')
     .destination('build')
     .clean(true) // Clean the target dir before building
@@ -33,7 +43,7 @@ function build(callback) {
     .use(collections({
       articles: {
         pattern: 'articles/**/*.md',
-        sortBy: 'date',
+        sort: 'date',
         reverse: true
       }
     }))
@@ -52,9 +62,10 @@ function build(callback) {
       directory: 'templates',
       pretty: true
     }))
+    //.use(inplace(true))
     .build(function (err) {
       var message = err ? err : 'Build complete';
-      console.log(message);
+      console.log(new Date(), message);
       callback();
     });
 }

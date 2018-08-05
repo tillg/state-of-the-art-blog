@@ -1,5 +1,5 @@
 ---
-    template: index.jade
+template: index.jade
 ---
 
-Helloworld!
+Helloworld! 
