@@ -3,20 +3,23 @@ footer
     .row
       .col-lg-8.col-md-10.mx-auto
         ul.list-inline.text-center
-          li.list-inline-item
-            a(href="#")
-              span.fa-stack.fa-lg
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-twitter.fa-stack-1x.fa-inverse
-          li.list-inline-item
-            a(href="#")
-              span.fa-stack.fa-lg
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-facebook.fa-stack-1x.fa-inverse
-          li.list-inline-item
-            a(href="#")
-              span.fa-stack.fa-lg
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-github.fa-stack-1x.fa-inverse
+          if site.twitterLink
+            li.list-inline-item
+              a(href="#{site.twitterLink}")
+                span.fa-stack.fa-lg
+                  i.fa.fa-circle.fa-stack-2x
+                  i.fa.fa-twitter.fa-stack-1x.fa-inverse
+          if site.facebookLink
+            li.list-inline-item
+              a(href="#{site.facebookLink}")
+                span.fa-stack.fa-lg
+                  i.fa.fa-circle.fa-stack-2x
+                  i.fa.fa-facebook.fa-stack-1x.fa-inverse
+          if site.githubLink
+            li.list-inline-item
+              a(href="#{site.githubLink}")
+                span.fa-stack.fa-lg
+                  i.fa.fa-circle.fa-stack-2x
+                  i.fa.fa-github.fa-stack-1x.fa-inverse
         p.copyright.text-muted
           Copyright &copy; #{site.author} 2018 - &infin;

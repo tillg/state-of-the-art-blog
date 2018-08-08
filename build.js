@@ -37,7 +37,11 @@ function build(callback, siteUrl) {
         title: "State of the art Blog",
         subtitle: "Blogging the way a tech guy does it in 2018",
         url: siteUrl ? siteUrl : 'https://tillg.github.io/state-of-the-art-blog',
-        author: 'Till Gartner'
+        author: 'Till Gartner',
+        // Just ommit the twitter, facebook or github link if you don't want those. The logos & links will simply not show up.
+        twitterLink: 'https://twitter.com/tillg',
+        facebookLink: 'https://www.facebook.com/till.gartner',
+        githubLink: 'https://github.com/tillg'
       }
     })
     .source('src')
