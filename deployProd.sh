@@ -3,7 +3,7 @@
 echo "Entering deployProd.sh"
 
 set -o errexit -o nounset
-
+ 
 rev=$(git rev-parse --short HEAD)
 echo "Revision: " + $rev
 
