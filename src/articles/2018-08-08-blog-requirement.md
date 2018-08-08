@@ -17,7 +17,7 @@ The requirements I absolutely need. I wouldn't use a blog without these fetures/
 * **Beautiful**: Although this is very subjective, I think about a beautiful blog. Nowadays nobody wants to read 80'ies like websites anymore. 
 * **Fast** as nobody stays on slow websites.
 * **Static**. See here [why static makes sense to me](/todo).
-* A reasonable **directory & file structure**. One of the things I dislike in many blogs is the fact that pictures are all in one `img` or `assets` folder and therefore referencing them from blogs or articles needs long URLs like `/assets/2018/08/08/nice_pic.jpg`. To me pictures belong to an article, should be in the same directory as the markdown and therefore can be referenced as `nicepig.jpg`.
+* A reasonable **directory & file structure**. One of the things I dislike in many blogs is the fact that pictures are all in one `img` or `assets` folder and therefore referencing them from blogs or articles needs long URLs like `#{site.url}/assets/2018/08/08/nice_pic.jpg`. To me pictures belong to an article, should be in the same directory as the markdown and therefore can be referenced as `nicepig.jpg`.
 * **Google tracking**, because we want to know if people read our blog. And as it's standard it's an easy choice.
 * **Picture resizing**: When writing I want to simply drop in the pictures as I have them, ideally in the highest resolution available. It should be up to my software to take care of re-sizing (i.e. make my pictures sizes smaller). And ideally on click it should redirect my reader to the full size picture so she can enjoy the quality of it. Without this feature the site wouldn't be mobile usable anyways...
 
@@ -30,3 +30,6 @@ Stuff I would love to have ;)
 * **Offline availability**: When sopmeone has read my blog before and re-loads it, it should show even if she is offline - while telling her that the blog will be updated once she is online again.
 * [**AMP**](https://www.ampproject.org/) is just lightning fast, so this would be great, especially when being mobile!
 * **Nice editing experience** as my mother should be able to edit it. 
+* **Tests** that what I wrote (as content) translates properly into proper HTML. So content should never break the blog. This contains for example test like these ones:
+  * Automated link checking
+  * Checking for completeness (i.e. does an article without title make sense? Therefore, should it be allowed?)
