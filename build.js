@@ -13,7 +13,8 @@ var logger = require('metalsmith-logger');
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
-if (!argv.deploy) {
+console.log(argv);
+if (!argv._.includes('deploy')) {
   browserSync({
     server: 'build',
     files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
