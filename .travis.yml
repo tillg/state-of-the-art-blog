@@ -1,15 +1,5 @@
 language: node_js
-jdk:
-   - openjdk7
-script: 
-   - bash bakeit.sh
+node_js:
+  - "9"
 after_success:
   - bash deployProd.sh
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep-history: true
-  on:
-    branch: gh-pages
