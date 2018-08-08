@@ -6,7 +6,7 @@ template: article.jade
 
 The list of things that I plan to do in the order I want to do them:
 
-* Add Google tracking
+* Check the guide to set up a new blog site really works
 * A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
 
 ## 2018-08-08 in a coffee shop in Tam Coc

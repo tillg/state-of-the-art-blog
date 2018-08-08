@@ -12,9 +12,7 @@ var logger = require('metalsmith-logger');
 var default_values = require('metalsmith-default-values');
 var assert = require('metalsmith-assert');
 var sitemap = require('metalsmith-sitemap');
-
-// Some constants and variables we need 
-var productionUrl = 'https://tillg.github.io/state-of-the-art-blog';
+var config = require('./config');
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
@@ -24,7 +22,7 @@ if (!argv._.includes('deploy')) {
     server: 'build',
     files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
     middleware: function (req, res, next) {
-      build(next, 'http://localhost:3000');
+      build(next, config.devUrl);
     }
   });
 } else {
@@ -38,15 +36,14 @@ function build(callback, siteUrl) {
     .metadata({
       moment,
       site: {
-        title: "State of the art Blog",
-        subtitle: "Blogging the way a tech guy does it in 2018",
-        url: siteUrl ? siteUrl : productionUrl,
-        author: 'Till Gartner',
-        // Just ommit the twitter, facebook or github link if you don't want those. The logos & links will simply not show up.
-        twitterLink: 'https://twitter.com/tillg',
-        facebookLink: 'https://www.facebook.com/till.gartner',
-        githubLink: 'https://github.com/tillg',
-        googleTrackingCode: 'UA-123599626-1'
+        title: config.siteTitle,
+        subtitle: config.siteSubTitle,
+        url: siteUrl ? siteUrl : config.productionUrl,
+        author: config.author,
+        twitterLink: config.twitterLink,
+        facebookLink: config.facebookLink,
+        githubLink: config.githubLink,
+        googleTrackingCode: config.googleTrackingCode
       }
     })
     .source('src')
@@ -93,7 +90,7 @@ function build(callback, siteUrl) {
       pretty: true
     }))
     .use(sitemap({
-      'hostname': siteUrl ? siteUrl : productionUrl
+      'hostname': siteUrl ? siteUrl : config.productionUrl
     }))
     .build(function (err) {
       var message = err ? err : 'Build complete';
