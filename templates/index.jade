@@ -1,0 +1,19 @@
+extend default.jade
+
+block content
+
+  // Main Content from index.jade
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        each article in collections.articles
+          //article_to_preview = article
+          include article_preview.jade
+
+        // Pager 
+        .clearfix
+          a.btn.btn-primary.float-right(href="#")
+            Older Posts &rarr;
+
+  hr
+
