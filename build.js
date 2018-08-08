@@ -64,14 +64,14 @@ function build(callback, siteUrl) {
         reverse: true
       }
     }))
-    .use(assert({
+    /*.use(assert({
       "title exists": {
         actual: "title"
       },
       "date exists": {
         actual: "date"
       }
-    }))
+    }))*/
     .use(markdown({
       smartypants: true,
       gfm: true,
