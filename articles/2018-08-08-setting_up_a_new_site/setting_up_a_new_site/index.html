@@ -50,72 +50,40 @@
       </div>
     </header>
     <!-- Main Content from default.jade-->
-    <!-- Main Content from index.jade-->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2018-09-10-technical_roadmap/technical_roadmap">
-              <h2 class="post-title">Technical road map &amp; change log</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted on 10.08.2018
-            </p>
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto"> <p>If you want to set up a new site based on this template, these are the steps to take:</p>
+<ul>
+<li>Create your won repo on github. let’s call this <code>github.com/YOU/YOUR_BLOG</code></li>
+<li>Activate github pages</li>
+<li>Clone the repo like so:</li>
+</ul>
+<pre><code>git clone https://github.com/tillg/state-of-the-art-blog.git
+</code></pre><ul>
+<li>Set the origin to your repo:</li>
+</ul>
+<pre><code>git remote rm origin
+git remote add origin https://github.com/YOU/YOUR_BLOG.git
+git add .
+git commit -m &quot;first commit&quot;
+git push -u origin master
+</code></pre><ul>
+<li>Link it to <a href="https://travis-ci.org/">Travis CI</a></li>
+<li>Edit an article within the <code>src</code> directory</li>
+<li>Commit and push:</li>
+</ul>
+<pre><code>git commit -m &quot;Changed an article&quot;
+git push
+</code></pre><ul>
+<li>Wait and go see <a href="#">https://YOU.github.io/YOUR_BLOG</a></li>
+</ul>
+
           </div>
-          <hr/>
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2018-08-09-why_static">
-              <h2 class="post-title">Why a static blog makes sense to me</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted on 09.08.2018
-            </p>
-          </div>
-          <hr/>
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2018-08-08-setting_up_a_new_site/setting_up_a_new_site">
-              <h2 class="post-title">Setting up a new site</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted on 08.08.2018
-            </p>
-          </div>
-          <hr/>
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2018-08-08-blog-requirement">
-              <h2 class="post-title">Requirements for a blog</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted on 08.08.2018
-            </p>
-          </div>
-          <hr/>
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2018-08-04-the_greedy_ways_apple/2018-08-04-the_greedy_ways_apple">
-              <h2 class="post-title">The greedy ways Apple got to $1 trillion</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted by Josh Constine on 04.08.2018
-            </p>
-          </div>
-          <hr/>
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2018-08-01-a_date_but_no_author">
-              <h2 class="post-title">A date but no author</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted on 01.08.2018
-            </p>
-          </div>
-          <hr/>
-          <!--article_to_preview = article-->
-          <div class="post-preview"><a href="articles/2017-08-29-welcome">
-              <h2 class="post-title">An intro to Lorem Ipsum Text.</h2>
-              <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3></a>
-            <p class="post-meta">Posted by Christian Nwamba on 29.08.2017
-            </p>
-          </div>
-          <hr/>
-          <!-- Pager -->
-          <div class="clearfix"><a href="#" class="btn btn-primary float-right">
-              <Older>Posts &rarr;</Older></a></div>
         </div>
       </div>
-    </div>
+    </article>
     <hr/>
     <!-- Footer-->
     <footer>
