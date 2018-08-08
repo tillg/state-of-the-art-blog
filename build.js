@@ -43,6 +43,15 @@ function build(callback) {
     .source('src')
     .destination('build')
     .clean(true) // Clean the target dir before building
+    .use(default_values([{
+      pattern: '**/*.md',
+      defaults: {
+        template: 'article.jade',
+        date: function (post) {
+          return post.stats.ctime;
+        }
+      }
+    }]))
     .use(drafts())
     .use(collections({
       articles: {
