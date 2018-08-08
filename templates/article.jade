@@ -2,11 +2,10 @@ extend default.jade
 
 block content
 
-// Post Content 
-article
-  .container
-    .row
-      .col-lg-8.col-md-10.mx-auto
-        p #{article.contents}
-
-hr
+  // Post Content 
+  article
+    .container
+      .row
+        .col-lg-8.col-md-10.mx-auto 
+          != contents
+  hr

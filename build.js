@@ -8,6 +8,8 @@ var argv = require('minimist')(process.argv);
 var browserSync = require('browser-sync');
 var drafts = require('metalsmith-drafts');
 var moment = require('moment');
+var logger = require('metalsmith-logger');
+
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
@@ -22,7 +24,7 @@ if (!argv.deploy) {
 } else {
   build(function () {
     console.log('Done building.');
-  })
+  });
 }
 
 function build(callback) {
@@ -30,9 +32,9 @@ function build(callback) {
     .metadata({
       moment,
       site: {
-        title: "Till's Year",
-        subtitle: "One year. One picture a day.",
-        url: 'https://tillsyear.com',
+        title: "State of the art Blog",
+        subtitle: "Blogging the way a tech guy does it in 2018",
+        url: 'https://state-of-the-art-blog.software',
         author: 'Till Gartner'
       }
     })
