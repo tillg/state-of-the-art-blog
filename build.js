@@ -9,7 +9,8 @@ var browserSync = require('browser-sync');
 var drafts = require('metalsmith-drafts');
 var moment = require('moment');
 var logger = require('metalsmith-logger');
-
+var default_values = require('metalsmith-default-values');
+var assert = require('metalsmith-assert');
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
@@ -48,6 +49,14 @@ function build(callback) {
         pattern: 'articles/**/*.md',
         sort: 'date',
         reverse: true
+      }
+    }))
+    .use(assert({
+      "title exists": {
+        actual: "title"
+      },
+      "date exists": {
+        actual: "date"
       }
     }))
     .use(markdown({
