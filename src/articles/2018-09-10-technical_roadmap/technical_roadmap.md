@@ -6,7 +6,7 @@ template: article.jade
 
 The list of things that I plan to do in the order I want to do them:
 
-* Make file and directory structure useable, especially files should be next to the articles.
+* Add Google tracking
 * A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
 
 ## 2018-08-08 in a coffee shop in Tam Coc
@@ -16,5 +16,8 @@ The list of things that I plan to do in the order I want to do them:
   * ...or fill those fields with default and produce warnings.
 * Structured the pages in portions easier to handle: default is composed of header, main and footer.
 * Added pages as templates and build a simple _About_ and _Contact_ page.
-  
-  ![Coffee Shop](coffeeshop.jpg) 
+* Pages can now reside in sub directories just next to their images.
+* Added a sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml)
+* Added Google tracking
+
+![Coffee Shop](coffeeshop.jpg) 

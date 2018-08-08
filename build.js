@@ -11,6 +11,10 @@ var moment = require('moment');
 var logger = require('metalsmith-logger');
 var default_values = require('metalsmith-default-values');
 var assert = require('metalsmith-assert');
+var sitemap = require('metalsmith-sitemap');
+
+// Some constants and variables we need 
+var productionUrl = 'https://tillg.github.io/state-of-the-art-blog';
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
@@ -36,12 +40,13 @@ function build(callback, siteUrl) {
       site: {
         title: "State of the art Blog",
         subtitle: "Blogging the way a tech guy does it in 2018",
-        url: siteUrl ? siteUrl : 'https://tillg.github.io/state-of-the-art-blog',
+        url: siteUrl ? siteUrl : productionUrl,
         author: 'Till Gartner',
         // Just ommit the twitter, facebook or github link if you don't want those. The logos & links will simply not show up.
         twitterLink: 'https://twitter.com/tillg',
         facebookLink: 'https://www.facebook.com/till.gartner',
-        githubLink: 'https://github.com/tillg'
+        githubLink: 'https://github.com/tillg',
+        googleTrackingCode: 'UA-123599626-1'
       }
     })
     .source('src')
@@ -87,7 +92,9 @@ function build(callback, siteUrl) {
       directory: 'templates',
       pretty: true
     }))
-    //.use(inplace(true))
+    .use(sitemap({
+      'hostname': siteUrl ? siteUrl : productionUrl
+    }))
     .build(function (err) {
       var message = err ? err : 'Build complete';
       console.log(new Date(), message);

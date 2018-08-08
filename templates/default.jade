@@ -18,6 +18,13 @@ html(lang='en')
     // Custom styles for this template
     link(href='#{site.url}/assets/css/clean-blog.min.css', rel='stylesheet')
 
+    // Google tracking code
+    script(async src="https://www.googletagmanager.com/gtag/js?id=#{site.googleTrackingCode}").
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '#{site.googleTrackingCode}');
+      
   body
 
     // Navigation
