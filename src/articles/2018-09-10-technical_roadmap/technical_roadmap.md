@@ -7,6 +7,11 @@ template: article.jade
 The list of things that I plan to do in the order I want to do them:
 
 * Check the guide to set up a new blog site really works
+* Make sure no broken links can get on our site. Look at this:
+  * https://github.com/gchallen/code.metalsmith-linkcheck
+  * https://github.com/davidxmoody/metalsmith-broken-link-checker
+* Add a build date to the pages:
+  * https://github.com/segmentio/metalsmith-build-date
 * A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
 
 ## 2018-08-08 in a coffee shop in Tam Coc
