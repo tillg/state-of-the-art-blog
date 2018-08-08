@@ -1,6 +1,7 @@
 # state-of-the-art-blog
 
 Playing around to build a proper blog template.
+To see the result go [here](https://tillg.github.io/state-of-the-art-blog/).
 
 ## Tech Todo's
 

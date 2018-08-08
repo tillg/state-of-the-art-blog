@@ -35,7 +35,7 @@ function build(callback) {
       site: {
         title: "State of the art Blog",
         subtitle: "Blogging the way a tech guy does it in 2018",
-        url: 'https://state-of-the-art-blog.software',
+        url: 'https://tillg.github.io/state-of-the-art-blog/',
         author: 'Till Gartner'
       }
     })
