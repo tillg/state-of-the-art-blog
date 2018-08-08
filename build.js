@@ -20,7 +20,7 @@ if (!argv._.includes('deploy')) {
     server: 'build',
     files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
     middleware: function (req, res, next) {
-      build(next);
+      build(next, 'http://localhost:3000');
     }
   });
 } else {
@@ -29,14 +29,14 @@ if (!argv._.includes('deploy')) {
   });
 }
 
-function build(callback) {
+function build(callback, siteUrl) {
   metalsmith(__dirname)
     .metadata({
       moment,
       site: {
         title: "State of the art Blog",
         subtitle: "Blogging the way a tech guy does it in 2018",
-        url: 'https://tillg.github.io/state-of-the-art-blog/',
+        url: siteUrl ? siteUrl : 'https://tillg.github.io/state-of-the-art-blog',
         author: 'Till Gartner'
       }
     })
