@@ -2,7 +2,7 @@ module.exports = {
   productionUrl: 'https://tillg.github.io/state-of-the-art-blog',
   devUrl: 'http://localhost:3000',
 
-  siteTitle: 'State of the art Blog',
+  siteTitle: 'State-of-the-art Blog',
   siteSubTitle: 'Blogging the way a tech guy does it in 2018',
   author: 'Till Gartner',
 
