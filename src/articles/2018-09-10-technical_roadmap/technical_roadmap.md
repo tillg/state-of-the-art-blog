@@ -14,6 +14,10 @@ The list of things that I plan to do in the order I want to do them:
   * https://github.com/segmentio/metalsmith-build-date
 * A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
 
+## 2018-08-09 on the go
+
+* Integrated the Google fonts to be downloaded from the same source, so the site runs entirely offline. Used [this resource](https://google-webfonts-helper.herokuapp.com/)
+
 ## 2018-08-08 in a coffee shop in Tam Coc
 
 * Start building checks to ensure that content cannot break the blog. Start with

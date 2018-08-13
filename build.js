@@ -17,7 +17,7 @@ var config = require('./config');
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
 console.log(argv);
-if (!argv._.includes('deploy')) {
+if (!argv._.includes('deploy') && argv._.includes('serve')) {
   browserSync({
     server: 'build',
     files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
@@ -25,6 +25,10 @@ if (!argv._.includes('deploy')) {
       build(next, config.devUrl);
     }
   });
+} else if (!argv._.includes('deploy')) {
+  build(function () {
+    console.log('Done building.');
+  }, config.devUrl);
 } else {
   build(function () {
     console.log('Done building.');
