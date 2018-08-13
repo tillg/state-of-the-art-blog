@@ -13,6 +13,7 @@ var default_values = require('metalsmith-default-values');
 var assert = require('metalsmith-assert');
 var sitemap = require('metalsmith-sitemap');
 var config = require('./config');
+var buildDate = require('metalsmith-build-date');
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
@@ -53,6 +54,9 @@ function build(callback, siteUrl) {
     .source('src')
     .destination('build')
     .clean(true) // Clean the target dir before building
+    .use(buildDate({
+      key: 'buildDate'
+    }))
     .use(default_values([{
       pattern: '**/*.md',
       defaults: {
