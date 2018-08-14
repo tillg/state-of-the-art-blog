@@ -27,7 +27,6 @@ const ensureDirectoryExistence = (filePath) => {
       }
     });
   });
-
   return promise;
 };
 
@@ -167,7 +166,7 @@ const writeResourceToFile = (filename, resourceContent) => {
     })
     .catch((err) => {
       logger.error(err.message);
-      throw (error);
+      throw (err);
     });
 };
 
@@ -254,5 +253,6 @@ module.exports = {
   writeObjectToFile: writeObjectToFile,
   writeObjectToFileSync: writeObjectToFileSync,
   readObjectFromFile: readObjectFromFile,
-  readObjectFromFileSync: readObjectFromFileSync
+  readObjectFromFileSync: readObjectFromFileSync,
+  writeResourceToFile: writeResourceToFile
 };

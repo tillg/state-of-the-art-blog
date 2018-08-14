@@ -5,7 +5,7 @@
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
-    "test": "node build.js deploy",
+    "test": "node build.js measure.js deploy",
     "measure": "node measure.js"
   },
   "author": "",
@@ -29,6 +29,8 @@
     "shelljs": "^0.8.2"
   },
   "devDependencies": {
+    "chrome-launcher": "^0.10.2",
+    "lighthouse": "^3.0.3",
     "moment": "^2.22.2",
     "psi": "^3.1.0"
   }
