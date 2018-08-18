@@ -5,7 +5,7 @@
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
-    "test": "node build.js measure.js deploy",
+    "test": "node build.js deploy",
     "measure": "node measure.js"
   },
   "author": "",
