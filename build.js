@@ -5,15 +5,16 @@ const permalinks = require('metalsmith-permalinks');
 const collections = require('metalsmith-collections');
 const assets = require('metalsmith-assets');
 const argv = require('minimist')(process.argv);
-const browserSync = require('browser-sync');
 const drafts = require('metalsmith-drafts');
 const moment = require('moment');
-const logger = require('metalsmith-logger');
+const logger = require('metalsmith-logger'); // eslint-disable-line no-unused-vars
 const defaultValues = require('metalsmith-default-values');
-const assert = require('metalsmith-assert');
+const assert = require('metalsmith-assert'); // eslint-disable-line no-unused-vars
 const sitemap = require('metalsmith-sitemap');
 const buildDate = require('metalsmith-build-date');
 const shell = require('shelljs');
+const debug = require('debug')('build');
+
 const config = require('./config');
 
 const patch = shell.exec('./getversion.sh').stdout.trim();
@@ -57,14 +58,6 @@ function build(callback, siteUrl) {
         reverse: true,
       },
     }))
-    /* .use(assert({
-      "title exists": {
-        actual: "title"
-      },
-      "date exists": {
-        actual: "date"
-      }
-    })) */
     .use(markdown({
       smartypants: true,
       gfm: true,
@@ -84,29 +77,24 @@ function build(callback, siteUrl) {
       hostname: siteUrl || config.productionUrl,
     }))
     .build((err) => {
-      const message = err || 'Build complete';
-      console.log(new Date(), message);
-      callback();
+      const message = err || 'Build completed successfully';
+      debug(new Date(), message);
     });
+  if (callback) {
+    callback();
+  }
 }
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.
-console.log(argv);
-if (!argv._.includes('deploy') && argv._.includes('serve')) {
-  browserSync({
-    server: 'build',
-    files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
-    middleware(req, res, next) {
-      build(next, config.devUrl);
-    },
-  });
-} else if (!argv._.includes('deploy')) {
+debug(argv);
+
+if (argv._.includes('deploy')) {
   build(() => {
-    console.log('Done building.');
-  }, config.devUrl);
+    debug('Done building.');
+  }, config.productionUrl);
 } else {
   build(() => {
-    console.log('Done building.');
-  });
+    debug('Done building.');
+  }, config.devUrl);
 }

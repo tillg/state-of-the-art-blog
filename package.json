@@ -4,15 +4,20 @@
   "description": "",
   "main": "build.js",
   "scripts": {
-    "build": "node build.js",
-    "test": "node build.js deploy",
-    "measure": "node measure.js"
+    "build": "DEBUG=build* node build.js",
+    "autobuild": "nodemon build.js",
+    "test": "DEBUG=* node build.js deploy",
+    "measure": "DEBUG=* node measure.js",
+    "browserSync": "node browserSync.js",
+    "dev": "concurrently --kill-others \"npm run autobuild\" \"npm run browserSync\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/minimist": "1.2.0",
     "browser-sync": "2.24.6",
+    "chalk": "2.4.1",
+    "debug": "3.1.0",
     "jade": "1.11.0",
     "metalsmith": "2.3.0",
     "metalsmith-assert": "0.0.5",
@@ -35,10 +40,19 @@
   },
   "devDependencies": {
     "chrome-launcher": "0.10.2",
+    "concurrently": "3.6.1",
     "eslint": "5.4.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0",
     "lighthouse": "3.0.3",
+    "nodemon": "1.18.3",
     "psi": "3.1.0"
+  },
+  "nodemonConfig": {
+    "verbose": false,
+    "ext": "md css jade js",
+    "ignore": [
+      "build/**/*"
+    ]
   }
 }

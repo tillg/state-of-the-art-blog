@@ -46,9 +46,9 @@ const fileExists = (filepath) => {
   const promise = new Promise((resolve, reject) => {
     fs.stat((filepath), (err, stats) => {
       if (err) {
-        return err.code === 'ENOENT'
-          ? resolve(false)
-          : reject(err);
+        return err.code === 'ENOENT' ?
+          resolve(false) :
+          reject(err);
       }
       resolve(stats.isFile() && stats.isDirectory());
     });
@@ -105,7 +105,7 @@ const makeBaseFilenameFromUrl = (url) => {
   // Let's save the ending for later
   let ending = url.substr(url.length - 1);
   let frontPartOfUrl = '';
-  if (ending != '/') {
+  if (ending !== '/') {
     const pieces = url.split(/[.\/]+/);
     ending = pieces[pieces.length - 1];
     frontPartOfUrl = url.substr(0, url.length - ending.length - 1);
@@ -128,7 +128,7 @@ const makeBaseFilenameFromUrl = (url) => {
 const makeFilenameFromUrl = (url) => {
   // Let's save the ending for later
   let ending = url.substr(url.length - 1);
-  if (ending != '/') {
+  if (ending !== '/') {
     const pieces = url.split(/[.\/]+/);
     ending = pieces[pieces.length - 1];
   } else {
@@ -240,4 +240,5 @@ module.exports = {
   readObjectFromFileSync,
   writeResourceToFile,
   eraseDir,
+  fileExists
 };
