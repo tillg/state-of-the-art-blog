@@ -9,3 +9,13 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top#mainNav
           a.nav-link(href="#{site.url}/about") About
         li.nav-item
           a.nav-link(href="#{site.url}/contact") Contact
+
+// Page Header
+header.masthead(style="background-image: url('#{site.url}/assets/img/home-bg.jpg')")
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .site-heading
+          h1 #{site.title} 
+          .subheading #{site.subtitle}

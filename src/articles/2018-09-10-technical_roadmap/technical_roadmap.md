@@ -30,4 +30,4 @@ The list of things that I plan to do in the order I want to do them:
 * Added a sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml)
 * Added Google tracking
 
-![Coffee Shop](coffeeshop.jpg) 
+![Coffee Shop](./coffeeshop.jpg) 
