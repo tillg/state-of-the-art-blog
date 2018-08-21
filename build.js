@@ -1,43 +1,22 @@
-var metalsmith = require('metalsmith');
-var markdown = require('metalsmith-markdown');
-var templates = require('metalsmith-templates');
-var permalinks = require('metalsmith-permalinks');
-var collections = require('metalsmith-collections');
-var assets = require('metalsmith-assets');
-var argv = require('minimist')(process.argv);
-var browserSync = require('browser-sync');
-var drafts = require('metalsmith-drafts');
-var moment = require('moment');
-var logger = require('metalsmith-logger');
-var default_values = require('metalsmith-default-values');
-var assert = require('metalsmith-assert');
-var sitemap = require('metalsmith-sitemap');
-var config = require('./config');
-var buildDate = require('metalsmith-build-date');
-var shell = require('shelljs');
+const metalsmith = require('metalsmith');
+const markdown = require('metalsmith-markdown');
+const templates = require('metalsmith-templates');
+const permalinks = require('metalsmith-permalinks');
+const collections = require('metalsmith-collections');
+const assets = require('metalsmith-assets');
+const argv = require('minimist')(process.argv);
+const browserSync = require('browser-sync');
+const drafts = require('metalsmith-drafts');
+const moment = require('moment');
+const logger = require('metalsmith-logger');
+const defaultValues = require('metalsmith-default-values');
+const assert = require('metalsmith-assert');
+const sitemap = require('metalsmith-sitemap');
+const buildDate = require('metalsmith-build-date');
+const shell = require('shelljs');
+const config = require('./config');
 
-var patch = shell.exec('./getversion.sh').stdout.trim();
-
-// If I run node run deploy --prod, it should not use browser-sync to watch for changes.
-// Otherwise, it should.
-console.log(argv);
-if (!argv._.includes('deploy') && argv._.includes('serve')) {
-  browserSync({
-    server: 'build',
-    files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
-    middleware: function (req, res, next) {
-      build(next, config.devUrl);
-    }
-  });
-} else if (!argv._.includes('deploy')) {
-  build(function () {
-    console.log('Done building.');
-  }, config.devUrl);
-} else {
-  build(function () {
-    console.log('Done building.');
-  });
-}
+const patch = shell.exec('./getversion.sh').stdout.trim();
 
 function build(callback, siteUrl) {
   metalsmith(__dirname)
@@ -46,46 +25,46 @@ function build(callback, siteUrl) {
       site: {
         title: config.siteTitle,
         subtitle: config.siteSubTitle,
-        url: siteUrl ? siteUrl : config.productionUrl,
+        url: siteUrl || config.productionUrl,
         author: config.author,
         twitterLink: config.twitterLink,
         facebookLink: config.facebookLink,
         githubLink: config.githubLink,
         googleTrackingCode: config.googleTrackingCode,
-        buildPatch: patch
-      }
+        buildPatch: patch,
+      },
     })
     .source('src')
     .destination('build')
     .clean(true) // Clean the target dir before building
     .use(buildDate({
-      key: 'buildDate'
+      key: 'buildDate',
     }))
-    .use(default_values([{
+    .use(defaultValues([{
       pattern: '**/*.md',
       defaults: {
         template: 'article.jade',
-        date: function (post) {
+        date(post) {
           return post.stats.ctime;
-        }
-      }
+        },
+      },
     }]))
     .use(drafts())
     .use(collections({
       articles: {
         pattern: 'articles/**/*.md',
         sort: 'date',
-        reverse: true
-      }
+        reverse: true,
+      },
     }))
-    /*.use(assert({
+    /* .use(assert({
       "title exists": {
         actual: "title"
       },
       "date exists": {
         actual: "date"
       }
-    }))*/
+    })) */
     .use(markdown({
       smartypants: true,
       gfm: true,
@@ -93,20 +72,41 @@ function build(callback, siteUrl) {
     }))
     .use(assets({
       source: './assets/',
-      destination: './assets'
+      destination: './assets',
     }))
     .use(permalinks())
     .use(templates({
       engine: 'jade',
       directory: 'templates',
-      pretty: true
+      pretty: true,
     }))
     .use(sitemap({
-      'hostname': siteUrl ? siteUrl : config.productionUrl
+      hostname: siteUrl || config.productionUrl,
     }))
-    .build(function (err) {
-      var message = err ? err : 'Build complete';
+    .build((err) => {
+      const message = err || 'Build complete';
       console.log(new Date(), message);
       callback();
     });
+}
+
+// If I run node run deploy --prod, it should not use browser-sync to watch for changes.
+// Otherwise, it should.
+console.log(argv);
+if (!argv._.includes('deploy') && argv._.includes('serve')) {
+  browserSync({
+    server: 'build',
+    files: ['src/*.md', 'templates/*.jade', 'assets/*.css'],
+    middleware(req, res, next) {
+      build(next, config.devUrl);
+    },
+  });
+} else if (!argv._.includes('deploy')) {
+  build(() => {
+    console.log('Done building.');
+  }, config.devUrl);
+} else {
+  build(() => {
+    console.log('Done building.');
+  });
 }
