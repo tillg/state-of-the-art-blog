@@ -6,7 +6,7 @@ date: 2018-08-08
 If you want to set up a new site based on this template, these are the steps to take:
 
 
-* Create your won repo on github. let's call this `github.com/YOU/YOUR_BLOG`
+* Create your own repo on github. let's call this `github.com/YOU/YOUR_BLOG`
 * Activate github pages
 * Clone the repo like so:
 

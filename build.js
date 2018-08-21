@@ -13,8 +13,10 @@ const assert = require('metalsmith-assert'); // eslint-disable-line no-unused-va
 const sitemap = require('metalsmith-sitemap');
 const buildDate = require('metalsmith-build-date');
 const shell = require('shelljs');
-const debug = require('debug')('build');
+const debugObject = require('debug');
 
+const debug = debugObject('build');
+debugObject.enable('*');
 const config = require('./config');
 
 const patch = shell.exec('./getversion.sh').stdout.trim();
@@ -45,9 +47,14 @@ function build(callback, siteUrl) {
       pattern: '**/*.md',
       defaults: {
         template: 'article.jade',
-        date(post) {
-          return post.stats.ctime;
+        date: (article) => {
+          return article.stats.ctime;
         },
+        excerpt: (article) => {
+          //debug(JSON.stringify(article));
+          const articleBeginning = article.contents.toString('utf8').substring(0, config.excerptLength);
+          return articleBeginning + '...';
+        }
       },
     }]))
     .use(drafts())

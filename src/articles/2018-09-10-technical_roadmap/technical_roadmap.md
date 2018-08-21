@@ -2,6 +2,7 @@
 date: 2018-08-10
 title: Technical road map & change log
 template: article.jade
+excerpt: A list of features that are planned to be developed together with their priority. Be aware that things might change...!
 ---
 
 The list of things that I plan to do in the order I want to do them:

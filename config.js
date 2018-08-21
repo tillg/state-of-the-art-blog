@@ -6,6 +6,10 @@ module.exports = {
   siteSubTitle: 'Blogging the way a tech guy does it in 2018',
   author: 'Till Gartner',
 
+  // In case an article doesn't have an excerpt, we take the beginning of the
+  // article as such. This is the length of this beginning.
+  excerptLength: 120,
+
   // Just ommit the twitter, facebook or github link if you don't want those. 
   // The logos & links will simply not show up.
   twitterLink: 'https://twitter.com/tillg',
