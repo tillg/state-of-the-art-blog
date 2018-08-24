@@ -18,5 +18,5 @@ module.exports = {
   facebookLink: 'https://www.facebook.com/till.gartner',
   githubLink: 'https://github.com/tillg',
 
-  googleTrackingCode: 'UA-123599626-1',
+  googleTrackingCode: 'UA-123599626-1'
 };

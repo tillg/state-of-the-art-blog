@@ -6,7 +6,7 @@
   "scripts": {
     "build": "DEBUG=build* node build.js",
     "autobuild": "nodemon build.js",
-    "test": "DEBUG=* node build.js deploy",
+    "test": "DEBUG=build node build.js deploy",
     "measure": "DEBUG=measure node measure.js",
     "browserSync": "node browserSync.js",
     "dev": "concurrently --kill-others \"npm run autobuild\" \"npm run browserSync\""
