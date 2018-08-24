@@ -22,14 +22,26 @@ The list of things that I plan to do in the order I want to do them:
 ## Bugs
 
 * Pictures seem wrongly sized, see at the bottom of this article.
-* Google reporting doesn't work
 * We create our own excerpt instead of using [this Metalsmith Plugin](https://github.com/segmentio/metalsmith-excerpts)
 
-## 2018-08-09 on the go
+## History
+
+### 2018-08-24 in Bali
+
+* Articles can now have pictures or not and a title/subtitle above the picture - or not.
+* Bug: Google reporting doesn't work. Was an error in the `script` tag in Jade...
+
+### 2018-08-21 at home
+
+* Fixed and re-built the ESlint setup
+* Re-setup the interaction between nodemon and browserSync
+* Articles can have excerpts
+
+### 2018-08-09 on the go
 
 * Integrated the Google fonts to be downloaded from the same source, so the site runs entirely offline. Used [this resource](https://google-webfonts-helper.herokuapp.com/)
 
-## 2018-08-08 in a coffee shop in Tam Coc
+### 2018-08-08 in a coffee shop in Tam Coc
 
 * Start building checks to ensure that content cannot break the blog. Start with
   * Every article must contain a title, date, template
@@ -40,6 +52,4 @@ The list of things that I plan to do in the order I want to do them:
 * Added a sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml)
 * Added Google tracking
 
-This is my workplace:
-![Coffee Shop](coffeeshop.jpg) 
-But why is the image so large??
+This is my workplace: ![Coffee Shop](coffeeshop.jpg) But why is the image so large??
