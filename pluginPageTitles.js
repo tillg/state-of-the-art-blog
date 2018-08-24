@@ -5,12 +5,11 @@
  */
 const debug = require('debug')('pluginSetPageHeaders');
 const path = require('path');
-var URL = require('url').URL;
+const { URL } = require('url');
 
 const absolutify = (myUrl, siteUrl) => {
   // Check if URL starts with a '/'
-  const yourUrl = new URL('https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash');
-  if (path.isAbsolute(myUrl)) return new URL(myUrl, siteUrl); 
+  if (path.isAbsolute(myUrl)) return new URL(myUrl, siteUrl);
   return myUrl;
 };
 
@@ -48,7 +47,7 @@ const plugin = (siteUrl) => {
     });
   };
   return setPageHeaders;
-}
+};
 
 /**
  * Expose `plugin`.

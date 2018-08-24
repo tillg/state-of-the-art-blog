@@ -24,7 +24,6 @@ const config = require('./config');
 const patch = shell.exec('./getversion.sh').stdout.trim();
 
 const build = (callback, siteUrl) => {
-
   if (!siteUrl) throw new Error('Build function needs to be passed a site URL.');
 
   metalsmith(__dirname)
@@ -95,7 +94,7 @@ const build = (callback, siteUrl) => {
   if (callback) {
     callback();
   }
-}
+};
 
 // If I run node run deploy --prod, it should not use browser-sync to watch for changes.
 // Otherwise, it should.

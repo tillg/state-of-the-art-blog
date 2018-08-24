@@ -12,11 +12,11 @@ module.exports = {
   // article as such. This is the length of this beginning.
   excerptLength: 120,
 
-  // Just ommit the twitter, facebook or github link if you don't want those. 
+  // Just ommit the twitter, facebook or github link if you don't want those.
   // The logos & links will simply not show up.
   twitterLink: 'https://twitter.com/tillg',
   facebookLink: 'https://www.facebook.com/till.gartner',
   githubLink: 'https://github.com/tillg',
 
-  googleTrackingCode: 'UA-123599626-1'
+  googleTrackingCode: 'UA-123599626-1',
 };

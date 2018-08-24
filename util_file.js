@@ -46,11 +46,12 @@ const fileExists = (filepath) => {
   const promise = new Promise((resolve, reject) => {
     fs.stat((filepath), (err, stats) => {
       if (err) {
-        return err.code === 'ENOENT' ?
-          resolve(false) :
-          reject(err);
+        return err.code === 'ENOENT'
+          ? resolve(false)
+          : reject(err);
       }
       resolve(stats.isFile() && stats.isDirectory());
+      return null;
     });
   });
   return promise;
@@ -240,5 +241,6 @@ module.exports = {
   readObjectFromFileSync,
   writeResourceToFile,
   eraseDir,
-  fileExists
+  fileExists,
+  makeFilenameFromUrl,
 };
