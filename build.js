@@ -18,19 +18,22 @@ const debugObject = require('debug');
 const pluginPageTitles = require('./pluginPageTitles');
 
 const debug = debugObject('build');
-debugObject.enable('*');
+debugObject.enable('build');
 const config = require('./config');
 
 const patch = shell.exec('./getversion.sh').stdout.trim();
 
 const build = (callback, siteUrl) => {
+
+  if (!siteUrl) throw new Error('Build function needs to be passed a site URL.');
+
   metalsmith(__dirname)
     .metadata({
       moment,
       site: {
         title: config.siteTitle,
         subtitle: config.siteSubTitle,
-        url: siteUrl || config.productionUrl,
+        url: siteUrl,
         author: config.author,
         headerPicture: config.headerPicture,
         twitterLink: config.twitterLink,
@@ -55,16 +58,10 @@ const build = (callback, siteUrl) => {
           const articleBeginning = article.contents.toString('utf8').substring(0, config.excerptLength);
           return `${articleBeginning} ...'`;
         },
-        displaySitename: (article) => {
-          // If the article has a header picture, we don't display the site title
-          const displaySitename = (!article.picture);
-          debug(`DisplaySitename for article ${article.title}: ${displaySitename}`);
-          return displaySitename;
-        },
       },
     },
     ]))
-    .use(pluginPageTitles())
+    .use(pluginPageTitles(siteUrl))
     .use(drafts())
     .use(collections({
       articles: {
@@ -89,7 +86,7 @@ const build = (callback, siteUrl) => {
       pretty: true,
     }))
     .use(sitemap({
-      hostname: siteUrl || config.productionUrl,
+      hostname: siteUrl,
     }))
     .build((err) => {
       const message = err || 'Build completed successfully';

@@ -6,7 +6,7 @@ module.exports = {
   siteSubTitle: 'Blogging the way a tech guy does it in 2018',
   author: 'Till Gartner',
 
-  headerPicture: '/assets/img/home-bg.jpg',
+  headerPicture: '/assets/img/home-bg.jpg', // Must be an absolute path!
 
   // In case an article doesn't have an excerpt, we take the beginning of the
   // article as such. This is the length of this beginning.

@@ -4,8 +4,19 @@
  * @return {Function}
  */
 const debug = require('debug')('pluginSetPageHeaders');
+const path = require('path');
+var URL = require('url').URL;
 
-function plugin() {
+const absolutify = (myUrl, siteUrl) => {
+  // Check if URL starts with a '/'
+  const yourUrl = new URL('https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash');
+  if (path.isAbsolute(myUrl)) return new URL(myUrl, siteUrl); 
+  return myUrl;
+};
+
+const plugin = (siteUrl) => {
+  if (!siteUrl) throw new Error('Plugin setPageHeaders must be called with a siteUrl.');
+
   const setPageHeaders = (files, metalsmith, done) => {
     setImmediate(done);
     Object.keys(files).forEach((file) => {
@@ -15,7 +26,7 @@ function plugin() {
 
       // Index page is treated a part
       if (data.template === 'index.jade') {
-        pageHeaders.picture = metadata.site.headerPicture;
+        pageHeaders.picture = absolutify(metadata.site.headerPicture, siteUrl);
         pageHeaders.title = metadata.site.title;
         pageHeaders.subtitle = metadata.site.subtitle;
       } else if (data.noPicture) {
@@ -23,11 +34,11 @@ function plugin() {
         pageHeaders.title = null;
         pageHeaders.subtitle = null;
       } else if (data.picture) {
-        pageHeaders.picture = data.picture;
+        pageHeaders.picture = absolutify(data.picture, siteUrl);
         pageHeaders.title = ' ';
         pageHeaders.subtitle = ' ';
       } else {
-        pageHeaders.picture = metadata.site.headerPicture;
+        pageHeaders.picture = absolutify(metadata.site.headerPicture, siteUrl);
         pageHeaders.title = metadata.site.title;
         pageHeaders.subtitle = metadata.site.subtitle;
       }
