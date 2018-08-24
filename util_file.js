@@ -242,5 +242,5 @@ module.exports = {
   writeResourceToFile,
   eraseDir,
   fileExists,
-  makeFilenameFromUrl,
+  makeFilenameFromUrl
 };

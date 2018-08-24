@@ -102,10 +102,10 @@ debug(argv);
 
 if (argv._.includes('deploy')) {
   build(() => {
-    debug('Done building.');
+    debug(`Done building with Patch ${patch}`);
   }, config.productionUrl);
 } else {
   build(() => {
-    debug('Done building.');
+    debug(`Done building with Patch ${patch}`);
   }, config.devUrl);
 }

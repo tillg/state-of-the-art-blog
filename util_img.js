@@ -24,7 +24,7 @@ const isEqual = (img1, img2) => {
 const imageArrayIncludesImage = (imageArray, img) => {
   for (i = 0; i < imageArray.length; i++) {
     if (isEqual(img, imageArray[i])) return true;
-  }
+  } 
   return false;
 };
 

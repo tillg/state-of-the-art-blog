@@ -2,3 +2,7 @@
     "extends": "airbnb-base"
 
 }
+{"rules": {
+    "no-var": off
+}
+}

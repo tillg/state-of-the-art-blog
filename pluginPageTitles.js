@@ -8,8 +8,12 @@ const path = require('path');
 const { URL } = require('url');
 
 const absolutify = (myUrl, siteUrl) => {
-  // Check if URL starts with a '/'
-  if (path.isAbsolute(myUrl)) return new URL(myUrl, siteUrl);
+  const siteUrlAsURL = new URL(siteUrl);
+  if (path.isAbsolute(myUrl)) {
+    // eslint-disable-next-line
+    const newUrl = siteUrlAsURL.protocol + '//' + siteUrlAsURL.host + '/' + siteUrlAsURL.pathname + myUrl; 
+    return newUrl
+  };
   return myUrl;
 };
 
