@@ -11,11 +11,17 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top#mainNav
           a.nav-link(href="#{site.url}/contact") Contact
 
 // Page Header
-header.masthead(style="background-image: url('#{site.url}/assets/img/home-bg.jpg')")
+header.masthead(style="background-image: url('#{site.url}#{site.headerPicture}')")
   .overlay
   .container
     .row
       .col-lg-8.col-md-10.mx-auto
         .site-heading
-          h1 #{site.title} 
-          .subheading #{site.subtitle}
+          if (!article) 
+            h1 #{site.title}
+            .subheading #{site.subtitle}
+          else
+            h1
+              = article.displaySitename ? article.title : ''
+            .subheading 
+              = article.displaySitename ? article.subtitle : ''

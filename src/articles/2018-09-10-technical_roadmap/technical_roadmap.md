@@ -3,10 +3,12 @@ date: 2018-08-10
 title: Technical road map & change log
 template: article.jade
 excerpt: A list of features that are planned to be developed together with their priority. Be aware that things might change...!
+picture: roadmap.jpg
 ---
 
 The list of things that I plan to do in the order I want to do them:
 
+* A document with incomplete title must break the build
 * Check the guide to set up a new blog site really works
 * Make sure no broken links can get on our site. Look at this:
   * https://github.com/gchallen/code.metalsmith-linkcheck
@@ -14,6 +16,11 @@ The list of things that I plan to do in the order I want to do them:
 * Add a build date to the pages:
   * https://github.com/segmentio/metalsmith-build-date
 * A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
+
+## Bugs
+
+* Google reporting doesn't work
+* We create our own excerpt instead of using [this Metalsmith Plugin](https://github.com/segmentio/metalsmith-excerpts)
 
 ## 2018-08-09 on the go
 

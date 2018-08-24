@@ -15,13 +15,15 @@ const buildDate = require('metalsmith-build-date');
 const shell = require('shelljs');
 const debugObject = require('debug');
 
+const pluginPageTitles = require('./pluginPageTitles');
+
 const debug = debugObject('build');
 debugObject.enable('*');
 const config = require('./config');
 
 const patch = shell.exec('./getversion.sh').stdout.trim();
 
-function build(callback, siteUrl) {
+const build = (callback, siteUrl) => {
   metalsmith(__dirname)
     .metadata({
       moment,
@@ -30,6 +32,7 @@ function build(callback, siteUrl) {
         subtitle: config.siteSubTitle,
         url: siteUrl || config.productionUrl,
         author: config.author,
+        headerPicture: config.headerPicture,
         twitterLink: config.twitterLink,
         facebookLink: config.facebookLink,
         githubLink: config.githubLink,
@@ -47,16 +50,21 @@ function build(callback, siteUrl) {
       pattern: '**/*.md',
       defaults: {
         template: 'article.jade',
-        date: (article) => {
-          return article.stats.ctime;
-        },
+        date: article => article.stats.ctime,
         excerpt: (article) => {
-          //debug(JSON.stringify(article));
           const articleBeginning = article.contents.toString('utf8').substring(0, config.excerptLength);
-          return articleBeginning + '...';
-        }
+          return `${articleBeginning} ...'`;
+        },
+        displaySitename: (article) => {
+          // If the article has a header picture, we don't display the site title
+          const displaySitename = (!article.picture);
+          debug(`DisplaySitename for article ${article.title}: ${displaySitename}`);
+          return displaySitename;
+        },
       },
-    }]))
+    },
+    ]))
+    .use(pluginPageTitles())
     .use(drafts())
     .use(collections({
       articles: {
