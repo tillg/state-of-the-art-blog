@@ -11,18 +11,16 @@ The list of things that I plan to do in the order I want to do them:
 * Fix bugs...
 * Paging when there are too many entries so the index would become too long
 * A document with incomplete title must break the build
+* We create our own excerpt instead of using [this Metalsmith Plugin](https://github.com/segmentio/metalsmith-excerpts). Using an existing tool is probably better...
 * Check the guide to set up a new blog site really works
 * Make sure no broken links can get on our site. Look at this:
   * https://github.com/gchallen/code.metalsmith-linkcheck
   * https://github.com/davidxmoody/metalsmith-broken-link-checker
-* Add a build date to the pages:
-  * https://github.com/segmentio/metalsmith-build-date
-* A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
+* Image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.
 
 ## Bugs
 
 * Pictures seem wrongly sized, see at the bottom of this article.
-* We create our own excerpt instead of using [this Metalsmith Plugin](https://github.com/segmentio/metalsmith-excerpts)
 
 ## History
 
