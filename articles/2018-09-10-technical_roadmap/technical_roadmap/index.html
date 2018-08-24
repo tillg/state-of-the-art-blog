@@ -22,29 +22,29 @@
     </script>
   </head>
   <body>
+    <!-- Navigation & page header-->
     <!-- Navigation-->
-    <!--include _navigation_wo_pic.jade -->
-    <!-- Page Header-->
-    <!--include _page_header_wo_pic.jade-->
-    <!-- Navigation-->
-    <nav id="mainNav" style="background-color:gray" class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container"><a href="https://tillg.github.io/state-of-the-art-blog" style="color:white" class="navbar-brand">State-of-the-art Blog</a>
-        <button type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color:white" class="navbar-toggler navbar-toggler-right">Menu</button>
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container"><a href="https://tillg.github.io/state-of-the-art-blog" class="navbar-brand">State-of-the-art Blog</a>
+        <button type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu</button>
         <div id="navbarResponsive" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="https://tillg.github.io/state-of-the-art-blog/about" style="color:white" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="https://tillg.github.io/state-of-the-art-blog/contact" style="color:white" class="nav-link">Contact </a></li>
+            <li class="nav-item"><a href="https://tillg.github.io/state-of-the-art-blog/about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="https://tillg.github.io/state-of-the-art-blog/contact" class="nav-link">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- Page Header-->
-    <header class="masthead">
+    <header style="background-image: url('https://tillg.github.io/state-of-the-art-blog/assets/img/home-bg.jpg')" class="masthead">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div style="padding-top:20;padding-bottom:0" class="site-heading"></div>
+            <div class="site-heading">
+              <h1>State-of-the-art Blog</h1>
+              <div class="subheading">Blogging the way a tech guy does it in 2018</div>
+            </div>
           </div>
         </div>
       </div>
@@ -58,6 +58,7 @@
             <h1> Technical road map & change log
             </h1><p>The list of things that I plan to do in the order I want to do them:</p>
 <ul>
+<li>A document with incomplete title must break the build</li>
 <li>Check the guide to set up a new blog site really works</li>
 <li>Make sure no broken links can get on our site. Look at this:<ul>
 <li><a href="https://github.com/gchallen/code.metalsmith-linkcheck">https://github.com/gchallen/code.metalsmith-linkcheck</a></li>
@@ -69,6 +70,11 @@
 </ul>
 </li>
 <li>A first image management: Images should be shrinked in size if bigger than a threshold value. And they should link to the full resolution image.</li>
+</ul>
+<h2 id="bugs">Bugs</h2>
+<ul>
+<li>Google reporting doesn’t work</li>
+<li>We create our own excerpt instead of using <a href="https://github.com/segmentio/metalsmith-excerpts">this Metalsmith Plugin</a></li>
 </ul>
 <h2 id="2018-08-09-on-the-go">2018-08-09 on the go</h2>
 <ul>
@@ -105,7 +111,7 @@
               <li class="list-inline-item"><a href="https://github.com/tillg"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li>
             </ul>
             <p class="copyright text-muted"> 
-              <Copyright>&copy; Till Gartner 2018 - &infin; <br/>Built Tue Aug 21 2018 16:25:09 GMT+0000 (Coordinated Universal Time) | Patch 49
+              <Copyright>&copy; Till Gartner 2018 - &infin; <br/>Built Fri Aug 24 2018 00:35:40 GMT+0000 (Coordinated Universal Time) | Patch 49
               </Copyright>
             </p>
           </div>

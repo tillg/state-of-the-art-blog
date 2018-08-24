@@ -55,39 +55,13 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto"> 
-            <h1> Requirements for a blog
-            </h1><p>When thinking about a blogging system, these are the requirements I have in mind.</p>
-<h1 id="basic-requirements">Basic requirements</h1>
-<p>The requirements I absolutely need. I wouldn’t use a blog without these fetures/functionalities.</p>
-<ul>
-<li><strong>Page types</strong>: For a blog I don’t need many pages. Basically Wordpress gives as a standard structure that seems established:<ul>
-<li><em>Index</em>: The front page of my blog</li>
-<li><em>Article</em>: The details of one blog entry. I like the term <strong>article</strong> better though and will therefore use it.</li>
-<li><em>Pages</em>: This are static pages. The difference to an article is the fact they don’t have a date. Typical example are the <em>About</em> page, <em>Legal</em> etc.</li>
-</ul>
-</li>
-<li><strong>Responsive</strong>, if not mobile first. Because <a href="https://www.statista.com/topics/779/mobile-internet/">51.2% of the internet usage is mobile</a>.</li>
-<li><strong>Beautiful</strong>: Although this is very subjective, I think about a beautiful blog. Nowadays nobody wants to read 80’ies like websites anymore. </li>
-<li><strong>Fast</strong> as nobody stays on slow websites.</li>
-<li><strong>Static</strong>. See here <a href="/todo">why static makes sense to me</a>.</li>
-<li>A reasonable <strong>directory &amp; file structure</strong>. One of the things I dislike in many blogs is the fact that pictures are all in one <code>img</code> or <code>assets</code> folder and therefore referencing them from blogs or articles needs long URLs like <code>#{site.url}/assets/2018/08/08/nice_pic.jpg</code>. To me pictures belong to an article, should be in the same directory as the markdown and therefore can be referenced as <code>nicepig.jpg</code>.</li>
-<li><strong>Google tracking</strong>, because we want to know if people read our blog. And as it’s standard it’s an easy choice.</li>
-<li><strong>Picture resizing</strong>: When writing I want to simply drop in the pictures as I have them, ideally in the highest resolution available. It should be up to my software to take care of re-sizing (i.e. make my pictures sizes smaller). And ideally on click it should redirect my reader to the full size picture so she can enjoy the quality of it. Without this feature the site wouldn’t be mobile usable anyways…</li>
-</ul>
-<h1 id="further-wishes">Further wishes</h1>
-<p>Stuff I would love to have ;)</p>
-<ul>
-<li><strong>Technically well structured</strong>: Yes, tech matters. If you don’t care tech, use wordpress: It comes with lots of functionality and looks good (given the right template). But my blog should be technically sound and well structured, so an engineer would quickly understand it and be able to modify it without jeopardizing the overall structure and stability. This also means proper documentation…</li>
-<li><strong>Locations</strong>: I want to be able to pin the location of an article. Simply by adding a <code>location</code> tag in my front matter, it should display a little map that links to a larger map showing to which location the article relates.</li>
-<li><strong>Offline availability</strong>: When sopmeone has read my blog before and re-loads it, it should show even if she is offline - while telling her that the blog will be updated once she is online again.</li>
-<li><a href="https://www.ampproject.org/"><strong>AMP</strong></a> is just lightning fast, so this would be great, especially when being mobile!</li>
-<li><strong>Nice editing experience</strong> as my mother should be able to edit it. </li>
-<li><strong>Tests</strong> that what I wrote (as content) translates properly into proper HTML. So content should never break the blog. This contains for example test like these ones:<ul>
-<li>Automated link checking</li>
-<li>Checking for completeness (i.e. does an article without title make sense? Therefore, should it be allowed?)</li>
-</ul>
-</li>
-</ul>
+            <h1> Titles and pictures of pages
+            </h1><p>Setting title and pictures follows a certain logic.</p>
+<h2 id="fields">Fields</h2>
+<p>The <em>input</em> for this logic are the following objects and fields:</p>
+<p><strong><code>site</code></strong> is set in the <code>build.js</code> file and contains site wide properties: title, subtitle, backgroundPic.</p>
+<p>The logic is implemented in… It gets as input the <code>article</code> object (which is empty in case )</p>
+<p>We set a new object that contains</p>
 
           </div>
         </div>
