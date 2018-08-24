@@ -1,6 +1,7 @@
 ---
 date: 2018-08-09
 title: Toughts on Performance
+noPicture: true
 ---
 Page Size Inspector Report
 

@@ -3,8 +3,9 @@ title: The greedy ways Apple got to $1 trillion
 date: 2018-08-01
 author: Josh Constine
 template: article.jade
+picture: Broken-Apple-Chargers1.jpg
 ---
-![Apple charger](Broken-Apple-Chargers1.jpg)
+
 For being the richest company ever with $243 billion in cash, Apple sure cuts corners in the stingiest ways. The hardware giant became the first trillion-dollar company this week. Yet it’s tough to reconcile Apple earning $11 billion in profit per quarter with it still screwing us over on cords and keyboards. The “it just works” philosophy has slipped through the cracks of the money-printing machine. It’s not that Apple  couldn’t afford to fix the problems, it’s just ensnared in hubris such that it doesn’t see them as important.
 
 We still turn to Apple because it makes the best core products. But the edges of the customer experience have frayed like the wires of a Lightning cable. The key to Apple’s fortune is obviously selling high margin iPhones, not these ways it nickels and dimes us. But the company has an opportunity to raise its standards after this milestone, and win back the faith that could push it to a $2 trillion market cap.
@@ -32,4 +33,4 @@ Apple benefits from a legion of blogs obsessing over its hardware and software, 
 What’s the opposite of “it just works”? Paying extra to lug around a slew of gangly cord connectors you need just to plug things into your laptop or phone. Dongles are the emblem of Apple’s abandonment of the user experience. A Thunderbolt 2 to Thunderbolt 3 dongle runs $50 while it will cost you $9 to plug in any pair of headphones from the past half-century once you’ve inevitably lost the Lightning dongle you’re allocated. Apple loves pushing us towards its vision of tomorrow, like Bluetooth headphones (that it sells) and USB-C fast-chargers (that it sells). But ditching headphone jacks and old school USB ports makes Apple’s latest devices incompatible with sanity. Even its own commercial shows musician Grimes struggling with her dongles. Sorry you can’t pass me the aux cord. I’m from the future.
 ![Dongle Hell](Dongle-Hell.jpg)
 
-I copied this article for illustration from [TechCrunch](the-greedy-ways-apple-got-to-1-trillion/)
+I copied this article for illustration from [TechCrunch](https://techcrunch.com/2018/08/04/the-greedy-ways-apple-got-to-1-trillion/)

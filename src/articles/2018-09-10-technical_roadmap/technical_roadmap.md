@@ -8,6 +8,8 @@ picture: roadmap.jpg
 
 The list of things that I plan to do in the order I want to do them:
 
+* Fix bugs...
+* Paging when there are too many entries so the index would become too long
 * A document with incomplete title must break the build
 * Check the guide to set up a new blog site really works
 * Make sure no broken links can get on our site. Look at this:
@@ -19,6 +21,7 @@ The list of things that I plan to do in the order I want to do them:
 
 ## Bugs
 
+* Pictures seem wrongly sized, see at the bottom of this article.
 * Google reporting doesn't work
 * We create our own excerpt instead of using [this Metalsmith Plugin](https://github.com/segmentio/metalsmith-excerpts)
 
@@ -37,4 +40,6 @@ The list of things that I plan to do in the order I want to do them:
 * Added a sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml)
 * Added Google tracking
 
-![Coffee Shop](./coffeeshop.jpg) 
+This is my workplace:
+![Coffee Shop](coffeeshop.jpg) 
+But why is the image so large??

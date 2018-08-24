@@ -24,12 +24,12 @@ function plugin() {
         pageHeaders.subtitle = null;
       } else if (data.picture) {
         pageHeaders.picture = data.picture;
-        pageHeaders.title = data.title;
-        pageHeaders.subtitle = null;
+        pageHeaders.title = ' ';
+        pageHeaders.subtitle = ' ';
       } else {
         pageHeaders.picture = metadata.site.headerPicture;
-        pageHeaders.title = data.title;
-        pageHeaders.subtitle = null;
+        pageHeaders.title = metadata.site.title;
+        pageHeaders.subtitle = metadata.site.subtitle;
       }
 
       data.pageHeaders = pageHeaders;
