@@ -6,7 +6,7 @@ excerpt: A list of features that are planned to be developed together with their
 picture: roadmap.jpg
 ---
 
-The list of things that I plan to do in the order I want to do them:
+The list of things that I plan to do in the order I want to do them: (huhu)
 
 * Fix bugs...
 * Paging when there are too many entries so the index would become too long
